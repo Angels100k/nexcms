@@ -14,9 +14,14 @@ const Page  = async () => {
         <section>
             <h1>Pages</h1>
             <div className="flex">
-                <ul>
+                <ul className='w-full'>
                     {allUsers.map((page) => {
-                        return <li key={page.ID} className='flex '><Link href={`/admin/pages/${page.ID}`}>{page.title}</Link> <a target='_blank' href={page.url}> <FontAwesomeIcon className='ml-2' icon={faGlobe} height={20} /></a></li>
+                        return (
+                        <li key={page.ID} className='flex bg-gray-100 my-2 p-4 w-full text-black'>
+                            <Link href={`/admin/pages/${page.ID}`}>{page.title}</Link> 
+                            <a target='_blank' href={page.url}> <FontAwesomeIcon className='ml-2' icon={faGlobe} height={20} /></a>
+                        </li>
+                        )
                     })}
                 </ul>
             </div>
