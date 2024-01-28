@@ -13,7 +13,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="flex">
           <Sidebar/>
-          <div className="w-5/6 p-8">
+          <div className="w-5/6 p-8 h-screen overflow-auto">
             {children}
           </div>
         </main>

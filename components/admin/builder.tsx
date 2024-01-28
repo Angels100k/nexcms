@@ -51,8 +51,11 @@ const Section = ({keyName, item}: {keyName: any, item: any}) => {
 }
 
 const Builder = (data:any) => {
+    console.log("daadata",data)
+    // if data = {} return empty
+    if(!data.data) return <div>No Data</div>
+
     const jsonData = JSON.parse(data.data)    
-    // console.log(jsonData);
     return (
         <>
           {Object.entries(jsonData).map(([key, value]) => (
