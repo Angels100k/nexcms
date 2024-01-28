@@ -16,3 +16,9 @@ model page {
   live         Int      @db.TinyInt
   date_created DateTime @default(now()) @db.Timestamp(0)
 }
+
+model theme {
+  ID        Int    @id @default(autoincrement())
+  themeName String @db.VarChar(255)
+  active    Int    @default(0)
+}
