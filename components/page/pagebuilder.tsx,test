@@ -1,0 +1,50 @@
+"use client"
+
+import React, { useState, useEffect } from 'react';
+
+const Pagebuilder = ({ jsonData, themeName }:any) => {
+    const [components, setComponents] = useState<any>({});
+
+    useEffect(() => {
+        if (!jsonData) return;
+        const imports = Object.keys(jsonData).map(async key => {
+            const path = `../../..//theme/${themeName}/component/${key}.tsx`;
+            console.log(path)
+            try {
+                const module = await import(path);
+                return { key, component: module.default };
+            } catch (error) {
+                console.error(`Failed to import ${path}`, error);
+                return { key, component: null };
+            }
+        });
+
+        Promise.all(imports).then(results => {
+            const loadedComponents = results.reduce((acc:any, { key, component }) => {
+                if (component) {
+                    acc[key] = component;
+                }
+                return acc;
+            }, {});
+            setComponents(loadedComponents);
+        });
+    }, [jsonData]);
+    if (!jsonData) return (<div>No Data</div>)
+
+    return (
+        <main>
+            {Object.entries(jsonData).map(([key, value]) => {
+                const Component = components[key]; // Assign the component to a capitalized variable
+                console.log("comp", Component)
+                return (
+                    <section key={key}>
+                        {/* Check if the component exists and render it, or show a fallback message */}
+                        {Component ? <Component {...value as any} /> : <p>Component not found for {key}</p>}
+                    </section>
+                );
+            })}
+        </main>
+    );
+};
+
+export default Pagebuilder;

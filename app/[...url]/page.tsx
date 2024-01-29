@@ -9,7 +9,7 @@ interface PageProps {
 const prisma = new PrismaClient()
 
 const webpage = async ({ params: { url } }: PageProps) => {
-    const pageurl = "/"
+    const pageurl = "/" + url.join('/')
 
     const [pageData, theme] = await Promise.all([
         prisma.page.findFirst({
@@ -21,9 +21,10 @@ const webpage = async ({ params: { url } }: PageProps) => {
     ]);
     const jsonData = pageData?.pageData ? JSON.parse(pageData.pageData.toString()) : {data:["empty"]};
 
+    // console.log("jsonData", jsonData)
     return (
         <div>
-            <Pagebuilder jsonData={jsonData} themeName={theme?.themeName} />
+            <Pagebuilder jsonData={jsonData} themeName={theme?.themeName} url={url} />
         </div>
     )
 }

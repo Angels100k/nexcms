@@ -1,4 +1,6 @@
+
 const Item = ({keyName, item}: {keyName: any, item: any}) => {
+
     switch (keyName) {
         case 'title':
         case 'text':
@@ -36,7 +38,6 @@ const Item = ({keyName, item}: {keyName: any, item: any}) => {
     }
 }
 const Section = ({keyName, item}: {keyName: any, item: any}) => {
-    // console.log(keyName);
     return(
         <div className="w-full text-black bg-gray-200 p-8 my-5 rounded-md">
             <h2 className="text-black">{keyName}</h2>
@@ -51,8 +52,6 @@ const Section = ({keyName, item}: {keyName: any, item: any}) => {
 }
 
 const Builder = (data:any) => {
-    console.log("daadata",data)
-    // if data = {} return empty
     if(!data.data) return <div>No Data</div>
 
     const jsonData = JSON.parse(data.data)    
