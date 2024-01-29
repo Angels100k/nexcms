@@ -19,6 +19,7 @@ const prisma = new PrismaClient()
  
 export default async function  ServerComponentExample({ themeName, jsonData, url }:any) {
     
+  await import(`@/theme/${themeName}/css/theme.css`).catch((error) => console.error("Failed to load theme CSS:", error));
     const componentsMap: ComponentsMap = {};
     let i = 0
     for (const key of Object.keys(jsonData)) {
@@ -28,14 +29,15 @@ export default async function  ServerComponentExample({ themeName, jsonData, url
     console.log(componentsMap)
     let y = 0
   return (
+
     <div>
       {Object.entries(jsonData).map(([key, value]) => {
         y++
         const Component = componentsMap?.[key + y] || null;
         return (
-          <section key={key}>
+          <div key={key}>
             {Component ? <Component {...value as React.ComponentProps<any>} /> : <p>Component not found for {key}</p>}
-          </section>
+          </div>
         );
       })}
     </div>

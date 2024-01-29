@@ -33,7 +33,7 @@ const Sidebar = () => {
         ]
     } as SidebarProps
     return (
-        <nav className="w-1/6 p-8 h-screen bg-primarybg text-sidetext">
+        <nav className="w-1/6 p-8 h-screen bg-admin-primarybg text-admin-sidetext">
             <h1 className='pl-4 mb-4'>Sidebar</h1>
             <ul>
                 {navs.map((nav) => {
