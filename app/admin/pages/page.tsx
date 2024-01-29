@@ -6,6 +6,8 @@ const prisma = new PrismaClient()
 
 const Page  = async () => {
     const allUsers = await prisma.page.findMany() 
+    prisma.$disconnect()
+
     return (
         <>
         <section>

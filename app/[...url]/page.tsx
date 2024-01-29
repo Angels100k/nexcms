@@ -19,9 +19,8 @@ const webpage = async ({ params: { url } }: PageProps) => {
             where: { active: 1 },
         }),
     ]);
+    prisma.$disconnect()
     const jsonData = pageData?.pageData ? JSON.parse(pageData.pageData.toString()) : {data:["empty"]};
-
-    // console.log("jsonData", jsonData)
     return (
         <div>
             <Pagebuilder jsonData={jsonData} themeName={theme?.themeName} url={url} />

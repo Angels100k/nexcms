@@ -19,6 +19,7 @@ const webpage = async ({ params: { url } }: PageProps) => {
             where: { active: 1 },
         }),
     ]);
+    prisma.$disconnect()
     const jsonData = pageData?.pageData ? JSON.parse(pageData.pageData.toString()) : {data:["empty"]};
 
     return (

@@ -13,6 +13,7 @@ const Page = async ({ params: { pageID } }: PageProps) => {
   const allUsers = await prisma.page.findFirst({
     where: { ID: parseInt(pageID) },
   })
+  prisma.$disconnect()
 
     return (
         <section className='flex flex-wrap'>
