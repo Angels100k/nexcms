@@ -26,7 +26,6 @@ export default async function  ServerComponentExample({ themeName, jsonData, url
         i++;
         componentsMap[key + i] = dynamic(() => import(`@/theme/${themeName}/component/${key}`))
     }
-    console.log(componentsMap)
     let y = 0
   return (
 

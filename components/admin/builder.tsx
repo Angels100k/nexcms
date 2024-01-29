@@ -9,7 +9,6 @@ const Item = ({keyName, item}: {keyName: any, item: any}) => {
                <>{keyName}: <input type="text" className="w-fit text-black" value={item} /></> 
             )
         case 'button': 
-            console.log(item)
             const {text, url} = item
             return (
                 <>
