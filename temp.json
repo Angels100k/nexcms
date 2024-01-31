@@ -1,0 +1,22 @@
+{
+    "hotel": {
+        "name": "Hotel",
+        "url": "/en/hotel"
+    },
+    "room": {
+        "name": "Rooms",
+        "url": "/en/accomodation"
+    },
+    "location": {
+        "name": "Location",
+        "url": "/en/location"
+    },
+    "galery": {
+        "name": "Gallery",
+        "url": "/en/gallery"
+    },
+    "contact": {
+        "name": "Contact",
+        "url": "/en/contact"
+    }
+}

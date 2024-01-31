@@ -77,3 +77,13 @@ currently accepted themecolors are
     --background
     --text
 ```
+
+## Globals
+
+Currently there are 2 globals. both globals are required or the app will not work.
+
+### Nav
+### Footer
+
+@/theme/[themeName]/global/footer.tsx
+@/theme/[themeName]/global/nav.tsx

@@ -9,6 +9,7 @@ datasource db {
 
 model page {
   ID           Int      @id @default(autoincrement())
+  type         Int
   title        String   @db.VarChar(255)
   metadata     Int
   url          String   @db.VarChar(255)
@@ -20,5 +21,21 @@ model page {
 model theme {
   ID        Int    @id @default(autoincrement())
   themeName String @db.VarChar(255)
+  colors    Bytes  @db.MediumBlob
   active    Int    @default(0)
+}
+
+model global {
+  ID          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  data        Bytes    @db.MediumBlob
+  dateCreated DateTime @default(now()) @db.Timestamp(0)
+}
+
+model pagetype {
+  ID          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  slug        String?  @db.VarChar(255)
+  template    String   @db.VarChar(255)
+  dateCreated DateTime @default(now()) @db.Timestamp(0)
 }
