@@ -1,5 +1,5 @@
 
-const Item = ({keyName, item}: {keyName: any, item: any}) => {
+const Item = ({keyName, item}: {keyName: string, item: any}) => {
 
     switch (keyName) {
         case 'title':
@@ -36,12 +36,12 @@ const Item = ({keyName, item}: {keyName: any, item: any}) => {
             )
     }
 }
-const Section = ({keyName, item}: {keyName: any, item: any}) => {
+const Section = ({keyName, item}: {keyName: string, item: any}) => {
     return(
         <div className="w-full text-black bg-gray-200 p-8 my-5 rounded-md">
             <h2 className="text-black">{keyName}</h2>
             <div className="flex flex-col">
-                {Object.entries(item).map(([key, value]: [any, any]) => (
+                {Object.entries(item).map(([key, value]: [string, any]) => (
                     <Item key={key} keyName={key} item={value} />
                 ))}
             </div>

@@ -80,10 +80,10 @@ currently accepted themecolors are
 
 ## Globals
 
-Currently there are 2 globals. both globals are required or the app will not work.
+Currently there are 2 globals. both globals are required or the website will not work.
 
 ### Nav
 ### Footer
 
-@/theme/[themeName]/global/footer.tsx
 @/theme/[themeName]/global/nav.tsx
+@/theme/[themeName]/global/footer.tsx

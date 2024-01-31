@@ -1,7 +1,8 @@
-import { PrismaClient } from '@prisma/client'
 import Sidebar from '@/components/admin/global/sidebar'
+import { PrismaClient } from '@prisma/client'
 
-const Global = async () => {
+
+const globalPage = async ({ params: { global } }: { params: { global: string } }) => {
     const prisma = new PrismaClient()
 
     const [globals] = await Promise.all([
@@ -9,13 +10,15 @@ const Global = async () => {
     ]);
 
     return (
-        <section className='w-full'>
-            <h1>Globals</h1>
+        <section className='flex'>
             <div className='w-1/5'>
                 <Sidebar globals={globals}/>
             </div>
-            
+            <div className='w-4/5'>
+                <h1>{global}</h1>
+            </div>
         </section>
+        
     )
 }
-export default Global
+export default globalPage
