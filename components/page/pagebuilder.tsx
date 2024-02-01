@@ -18,7 +18,7 @@ const prisma = new PrismaClient()
 // Server Component:
  
 export default async function  ServerComponentExample({ themeName, jsonData, url }:any) {
-    
+    console.log(themeName)
   await import(`@/theme/${themeName}/css/theme.css`).catch((error) => console.error("Failed to load theme CSS:", error));
 
   // check if the component exists then do import

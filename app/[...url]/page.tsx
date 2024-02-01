@@ -20,6 +20,7 @@ const webpage = async ({ params: { url } }: PageProps) => {
         }),
     ]);
     prisma.$disconnect()
+    console.log(theme)
     const jsonData = pageData?.pageData ? JSON.parse(pageData.pageData.toString()) : {data:["empty"]};
     return (
         <div>
