@@ -8,6 +8,7 @@ const globalPage = async ({ params: { global } }: { params: { global: string } }
     const [globals] = await Promise.all([
         prisma.global.findMany()
     ]);
+    prisma.$disconnect()
 
     return (
         <section className='flex'>
