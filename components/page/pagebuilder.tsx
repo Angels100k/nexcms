@@ -37,7 +37,8 @@ export default async function  ServerComponentExample({ themeName, jsonData, url
     }
     let y = 0
     const navJson = navData?.data ? JSON.parse(navData.data.toString()) : {data:["empty"]};
-    console.log(themeName, themeColors)
+
+    // TODO: find beter way to add theme colors
   return (
     <div style={{
       '--primary': themeColors.primary,
