@@ -21,6 +21,7 @@ model page {
 model theme {
   ID        Int    @id @default(autoincrement())
   themeName String @db.VarChar(255)
+  color     Bytes  @db.MediumBlob
   active    Int    @default(0)
 }
 

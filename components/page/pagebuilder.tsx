@@ -17,14 +17,9 @@ interface ComponentsMap {
 const prisma = new PrismaClient()
 // Server Component:
  
-export default async function  ServerComponentExample({ themeName, jsonData, url }:any) {
-    console.log(themeName)
-  await import(`@/theme/${themeName}/css/theme.css`).catch((error) => console.error("Failed to load theme CSS:", error));
-
-  // check if the component exists then do import
+export default async function  ServerComponentExample({ themeName, jsonData, url, themeColors }:any) {   
     const Nav = dynamic(() => import(`@/theme/${themeName}/global/nav`).catch((error) => console.error("Failed to load nav:", error)))
     const Footer = dynamic(() => import(`@/theme/${themeName}/global/footer`).catch((error) => console.error("Failed to load footer:", error)))
-    
     const [navData, footerData] = await Promise.all([
       prisma.global.findFirst({
           where: { name: "nav" },
@@ -42,9 +37,15 @@ export default async function  ServerComponentExample({ themeName, jsonData, url
     }
     let y = 0
     const navJson = navData?.data ? JSON.parse(navData.data.toString()) : {data:["empty"]};
+    console.log(themeName, themeColors)
   return (
-
-    <div>
+    <div style={{
+      '--primary': themeColors.primary,
+      '--secondary': themeColors.secondary,
+      '--accent': themeColors.accent,
+      '--background': themeColors.background,
+      '--text': themeColors.text,
+    } as React.CSSProperties}>
       {Nav ? <Nav {...navJson as React.ComponentProps<any>} /> : null}
       {Object.entries(jsonData).map(([key, value]) => {
         y++

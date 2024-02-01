@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 
 import Pagebuilder from '@/components/page/pagebuilder'
+import './global.css'
+
 interface PageProps {
     params: {
         url: string[]
@@ -21,10 +23,11 @@ const webpage = async ({ params: { url } }: PageProps) => {
     ]);
     prisma.$disconnect()
     const jsonData = pageData?.pageData ? JSON.parse(pageData.pageData.toString()) : {data:["empty"]};
+    const themeColors = theme?.color ? JSON.parse(theme?.color.toString()) : {};
 
     return (
         <div>
-            <Pagebuilder jsonData={jsonData} themeName={theme?.themeName} />
+            <Pagebuilder jsonData={jsonData} themeName={theme?.themeName} themeColors={themeColors} />
         </div>
     )
 }
