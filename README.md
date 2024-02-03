@@ -28,10 +28,15 @@ edit the DATABASE_URL to your mysql database
 
 # setup own theme
 
+## Fields setup
+
+To use fields in your theme you have to create them, once you've inistiated your theme and activated it you need to go to http://localhost:3000/admin/settings/fields and create your fields that you'll be using in the components page for your components
+
 ## component setup
 to create components in the application add folder to
 @/theme/[themeName]/component
 in there you can create all your components
+
 
 
 for possible atoms (like button)
