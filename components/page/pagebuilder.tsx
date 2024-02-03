@@ -15,9 +15,9 @@ interface ComponentsMap {
 [componentName: string]: ComponentTypeWithProps;
 }
 const prisma = new PrismaClient()
-// Server Component:
  
 export default async function  ServerComponentExample({ themeName, jsonData, url, themeColors }:any) {   
+    // TODO: Make Nav and Footer global optional
     const Nav = dynamic(() => import(`@/theme/${themeName}/global/nav`).catch((error) => console.error("Failed to load nav:", error)))
     const Footer = dynamic(() => import(`@/theme/${themeName}/global/footer`).catch((error) => console.error("Failed to load footer:", error)))
     const [navData, footerData] = await Promise.all([

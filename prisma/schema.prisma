@@ -39,3 +39,20 @@ model pagetype {
   template    String   @db.VarChar(255)
   dateCreated DateTime @default(now()) @db.Timestamp(0)
 }
+
+model field_groups {
+  ID          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  order       Int
+  theme_ID    Int
+  dateCreated DateTime @default(now()) @db.Timestamp(0)
+}
+
+model field {
+  ID          Int    @id @default(autoincrement())
+  type        Int
+  name        String @db.VarChar(255)
+  handle      String @db.VarChar(255)
+  instruction String @db.Text
+  group_ID    Int
+}

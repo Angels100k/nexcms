@@ -56,6 +56,12 @@ export const Sidebar = () => {
                     }, {
                         text: 'Globals',
                         url: '/admin/settings/globals'
+                    }, {
+                        text: 'Fields',
+                        url: '/admin/settings/fields'
+                    }, {
+                        text: 'Sections',
+                        url: '/admin/settings/sections'
                     }
                 ]
             }

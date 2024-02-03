@@ -6,28 +6,33 @@ const Item = ({keyName, item}: {keyName: string, item: any}) => {
         case 'text':
         case 'mainText':
             return (
-               <>{keyName}: <input type="text" className="w-fit text-black" value={item} /></> 
+               <div className="border-2 p-1 mb-2 border-black w-full">{keyName}: <input type="text" className="w-fit text-black" readOnly value={item} /></div> 
             )
         case 'button': 
             const {text, url} = item
             return (
-                <>
-                <p>{keyName}: </p>
-            
-                    text:<input type="text" className="w-fit text-black mb-2" value={text} /> 
-                    url:<input type="text" className="w-fit text-black" value={url} /></>
+                <div className="w-full text-black bg-gray-200 p-8 my-5 rounded-md">
+                    <p>{keyName}: </p>
+                    text:<input type="text" className="w-fit text-black mb-2" value={text} readOnly /> 
+                    url:<input type="text" className="w-fit text-black" value={url} readOnly />
+                </div>
             )
         case "subText": 
             return (
-                <>{keyName}: <textarea className="w-fit text-black" value={item} /></>
+                <>{keyName}: <textarea className="w-fit text-black" value={item} readOnly/></>
             )
         case 'image':
             return (
-                <>
-                {keyName}: 
-                <input type="text" className="w-fit text-black" value={item.url} />
-                <img src={item.url} width={100} height={100} />
-                </>
+                <div className="flex flex-wrap">
+                    <div className="w-full">
+                    {keyName}: 
+                    </div>
+                    <div className="flex w-full">
+                        <input type="file" className="w-4/5 text-black" value={item.url}readOnly />
+                        <img src={item.url} className="w-1/5"/>
+                    </div>
+                
+                </div>
             )
         default:
             console.log(keyName)
@@ -40,7 +45,7 @@ const Section = ({keyName, item}: {keyName: string, item: any}) => {
     return(
         <div className="w-full text-black bg-gray-200 p-8 my-5 rounded-md">
             <h2 className="text-black">{keyName}</h2>
-            <div className="flex flex-col">
+            <div className="flex flex-col builder-container">
                 {Object.entries(item).map(([key, value]: [string, any]) => (
                     <Item key={key} keyName={key} item={value} />
                 ))}

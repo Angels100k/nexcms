@@ -15,7 +15,15 @@ const Settings = () => {
         }, {
             name: 'Globals',
             url: '/admin/settings/globals'
-        }
+        },
+        {
+            name: 'Fields',
+            url: '/admin/settings/fields'
+        },
+        {
+            name: 'Sections',
+            url: '/admin/settings/sections'
+        },
     ]
     return (
         <section className="">

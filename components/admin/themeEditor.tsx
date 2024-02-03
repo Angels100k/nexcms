@@ -11,6 +11,7 @@ const themeEditor = ({ theme }: { theme: Theme[] }) => {
 
     const UpdateTheme = async (ID: number) => {
         await Update(ID)
+        // TODO: dont make it a window reload but use the use effects to get the new active theme from the database
         window.location.reload()
     }
 
