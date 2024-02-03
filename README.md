@@ -43,20 +43,13 @@ for possible atoms (like button)
 create folder
 @theme/[themeName]/component/atom
 
-## tailwind setup
+## custom css setup
 
 create folder and file in your theme folder as followed
 
 @/theme/[themeName]/css/theme.css
 
-add the default tailwind classes to use tailwind in your theme
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
+In here you can use your css as you please, use the @apply in your classes to use tailwind classes
 
 ## color setup
 
