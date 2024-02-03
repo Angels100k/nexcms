@@ -52,22 +52,10 @@ create folder and file in your theme folder as followed
 In here you can use your css as you please, use the @apply in your classes to use tailwind classes
 
 ## color setup
+Go to your admin -> settings -> theme -> colors 
 
-open file @/theme/[themeName]/css/theme.css
+In here you can use the color picker or the input field to add your colors to the system
 
-add :root colors for default colors
-```css
-:root {
-    --primary: [hashColor];
-    --secondary: [hashColor];
-    --accent: [hashColor];
-    --background: [hashColor];
-    --text: [hashColor];
-}
-```
-dont use ' or " for the hash color otherwise it wont work
-
-currently accepted themecolors are
 ```css
     --primary
     --secondary
