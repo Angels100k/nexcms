@@ -1,6 +1,6 @@
 const Default = () => {
     return (
-        <h1>Default</h1>
+        <h1>Default </h1>
     )
 }
 
