@@ -9,10 +9,10 @@ export const FieldData = ({groups, fields, themeID}: {groups: any, fields: any, 
     return (
         <div className="flex w-full">
             <div className="w-1/5 bg-slate-400">
-                <p onClick={() => setGroupsList(0)} className="cursor-pointer hover:bg-slate-500">All fields</p>
+                <p onClick={() => setGroupsList(0)} className="cursor-pointer p-4 hover:bg-slate-500">All fields</p>
                 {/* TODO: update styling */}
                 {groups.map((item:any) => (
-                    <p onClick={() => setGroupsList(item.ID)} className="cursor-pointer hover:bg-slate-500" key={item.ID}>{item.name}</p>
+                    <p onClick={() => setGroupsList(item.ID)} className="cursor-pointer hover:bg-slate-500  p-4" key={item.ID}>{item.name}</p>
                 ))}
                 <GroupFields themeID={themeID} />
             </div>

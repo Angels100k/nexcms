@@ -60,14 +60,13 @@ export const Sidebar = () => {
                         text: 'Fields',
                         url: '/admin/settings/fields'
                     }, {
-                        text: 'Sections',
-                        url: '/admin/settings/sections'
+                        text: 'Components',
+                        url: '/admin/settings/components'
                     }
                 ]
             }
         ]
     } as SidebarProps
-    console.log(pathname)
     return (
         <nav className="w-1/6 p-8 h-screen bg-admin-primarybg text-admin-sidetext">
             <h1 className='pl-4 mb-4'>Sidebar</h1>

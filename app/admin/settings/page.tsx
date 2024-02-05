@@ -21,8 +21,8 @@ const Settings = () => {
             url: '/admin/settings/fields'
         },
         {
-            name: 'Sections',
-            url: '/admin/settings/sections'
+            name: 'Components',
+            url: '/admin/settings/components'
         },
     ]
     return (
