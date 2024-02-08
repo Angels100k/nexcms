@@ -53,6 +53,26 @@ model field {
   type        Int
   name        String @db.VarChar(255)
   handle      String @db.VarChar(255)
-  instruction String @db.Text
+  instruction Bytes  @db.Blob
   group_ID    Int
+}
+
+model component_field {
+  ID           Int      @id @default(autoincrement())
+  component_ID Int
+  field_ID     Int
+  order        Int      @default(0)
+  dateCreated  DateTime @default(now()) @db.Timestamp(0)
+}
+
+model components {
+  ID       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
+  theme_ID Int
+}
+
+model field_type {
+  ID          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  dateCreated DateTime @default(now()) @db.Timestamp(0)
 }
